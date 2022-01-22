@@ -28,8 +28,4 @@ public class Image {
     @Column(name = "main")
     private Boolean main = false;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
 }

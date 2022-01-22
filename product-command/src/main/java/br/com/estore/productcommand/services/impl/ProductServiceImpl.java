@@ -2,7 +2,6 @@ package br.com.estore.productcommand.services.impl;
 
 import br.com.estore.productcommand.domain.dtos.ProductDTO;
 import br.com.estore.productcommand.domain.entities.Product;
-import br.com.estore.productcommand.repositories.ImageRepository;
 import br.com.estore.productcommand.repositories.ProductRepository;
 import br.com.estore.productcommand.services.ProductService;
 import org.modelmapper.ModelMapper;
@@ -14,14 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
-    private final ImageRepository imageRepository;
     private final ModelMapper mapper;
 
     public ProductServiceImpl(final ProductRepository productRepository,
-                              final ImageRepository imageRepository,
                               final ModelMapper mapper) {
         this.productRepository = productRepository;
-        this.imageRepository = imageRepository;
         this.mapper = mapper;
     }
 
@@ -44,7 +40,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO update(final ProductDTO product) {
         final Product productToUpdate = convertProductDTOToEntity(product);
-        imageRepository.deleteByProduct(productToUpdate);
         return saveOrUpdate(productToUpdate);
     }
 

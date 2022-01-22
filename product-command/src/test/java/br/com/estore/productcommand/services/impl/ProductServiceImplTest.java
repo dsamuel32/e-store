@@ -2,7 +2,6 @@ package br.com.estore.productcommand.services.impl;
 
 import br.com.estore.productcommand.domain.dtos.ProductDTO;
 import br.com.estore.productcommand.domain.entities.Product;
-import br.com.estore.productcommand.repositories.ImageRepository;
 import br.com.estore.productcommand.repositories.ProductRepository;
 import br.com.estore.productcommand.utils.JSONUtil;
 import org.junit.jupiter.api.DisplayName;
@@ -25,9 +24,6 @@ class ProductServiceImplTest {
 
     @Mock
     private ProductRepository productRepository;
-
-    @Mock
-    private ImageRepository imageRepository;
 
     @Mock
     private ModelMapper mapper;
@@ -60,13 +56,11 @@ class ProductServiceImplTest {
         when(productRepository.save(any(Product.class))).thenReturn(productEntityUpdated);
         when(mapper.map(any(ProductDTO.class), eq(Product.class))).thenReturn(productEntityToUpdate);
         when(mapper.map(any(Product.class), eq(ProductDTO.class))).thenReturn(productUpdated);
-        when(imageRepository.deleteByProduct(any(Product.class))).thenReturn(3l);
 
         final ProductDTO result = service.update(productToUpdated);
 
         assertEquals(productUpdated, result);
         verify(productRepository).save(productEntityToUpdate);
-        verify(imageRepository).deleteByProduct(productEntityToUpdate);
     }
 
     @Test
