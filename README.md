@@ -6,4 +6,5 @@ Desenvolvimento de 2 APIs, a 1ª para exposição de produtos de uma loja e a 2�
 Inclua um desenho arquitetural utilizando o padrão arquitetural CQRS com as tecnologias conhecidas.
 
 ##Arquitetura
-![](D:\codigos\java\e-store\diagrama\diagrama.png)
+
+![Arquitetura](https://github.com/dsamuel32/e-store/blob/master/diagrama/diagrama.png)
