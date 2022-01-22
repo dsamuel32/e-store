@@ -1,5 +1,6 @@
-package br.com.estore.productcommand.converters;
+package br.com.estore.productcommand.components.converters;
 
+import br.com.estore.productcommand.components.converters.ProductDTOConverter;
 import br.com.estore.productcommand.domain.dtos.ProductDTO;
 import br.com.estore.productcommand.domain.entities.Product;
 import br.com.estore.productcommand.utils.JSONUtil;

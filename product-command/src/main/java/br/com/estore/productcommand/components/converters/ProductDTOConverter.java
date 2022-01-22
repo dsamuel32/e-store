@@ -1,4 +1,4 @@
-package br.com.estore.productcommand.converters;
+package br.com.estore.productcommand.components.converters;
 
 import br.com.estore.productcommand.domain.dtos.CategoryDTO;
 import br.com.estore.productcommand.domain.dtos.ImageDTO;
@@ -13,38 +13,36 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class ProductEntityConverter extends AbstractConverter<ProductDTO, Product> {
+public class ProductDTOConverter extends AbstractConverter<Product, ProductDTO> {
 
     @Override
-    protected Product convert(final ProductDTO product) {
-        return Product.builder()
+    protected ProductDTO convert(final Product product) {
+        return ProductDTO.builder()
                 .id(product.getId())
                 .brand(product.getBrand())
                 .category(buildCategory(product.getCategory()))
                 .description(product.getDescription())
-                .published(false)
-                .active(true)
                 .images(buildImages(product.getImages()))
                 .name(product.getName())
                 .price(product.getPrice())
                 .build();
     }
 
-    private Category buildCategory(final CategoryDTO category) {
-        return Category.builder()
+    private CategoryDTO buildCategory(final Category category) {
+        return CategoryDTO.builder()
                 .id(category.getId())
                 .description(category.getDescription())
                 .build();
     }
 
-    private List<Image> buildImages(final List<ImageDTO> images) {
+    private List<ImageDTO> buildImages(final List<Image> images) {
         return images.stream()
                 .map(this::buildImage)
                 .collect(Collectors.toList());
     }
 
-    private Image buildImage(final ImageDTO image) {
-        return Image.builder()
+    private ImageDTO buildImage(final Image image) {
+        return ImageDTO.builder()
                 .link(image.getLink())
                 .main(image.getMain())
                 .description(image.getDescription())

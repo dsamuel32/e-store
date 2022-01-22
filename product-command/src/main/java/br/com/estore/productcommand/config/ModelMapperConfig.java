@@ -1,7 +1,7 @@
 package br.com.estore.productcommand.config;
 
-import br.com.estore.productcommand.converters.ProductDTOConverter;
-import br.com.estore.productcommand.converters.ProductEntityConverter;
+import br.com.estore.productcommand.components.converters.ProductDTOConverter;
+import br.com.estore.productcommand.components.converters.ProductEntityConverter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration.AccessLevel;
 import org.springframework.context.annotation.Bean;

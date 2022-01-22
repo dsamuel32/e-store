@@ -10,4 +10,6 @@ public interface ProductService {
 
     void disableProductById(final Long id);
 
+    void republishProducts();
+
 }

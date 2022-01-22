@@ -1,5 +1,6 @@
 package br.com.estore.productcommand.services.impl;
 
+import br.com.estore.productcommand.components.publishers.ProductRabbitMQPublisher;
 import br.com.estore.productcommand.domain.dtos.ProductDTO;
 import br.com.estore.productcommand.domain.entities.Product;
 import br.com.estore.productcommand.repositories.ProductRepository;
@@ -32,6 +33,9 @@ class ProductServiceImplTest {
     @Mock
     private ModelMapper mapper;
 
+    @Mock
+    private ProductRabbitMQPublisher publisher;
+
     @Test
     void shouldSaveProduct() {
         final Product productEntitySaved = JSONUtil.fromFile("samples/save/productEntitySave.json", Product.class);
@@ -47,6 +51,7 @@ class ProductServiceImplTest {
 
         assertEquals(productSaved, result);
         verify(productRepository).save(productEntityToSave);
+        verify(publisher).publish(result);
 
     }
 
@@ -65,22 +70,25 @@ class ProductServiceImplTest {
 
         assertEquals(productUpdated, result);
         verify(productRepository).save(productEntityToUpdate);
+        verify(publisher).publish(result);
     }
 
     @Test
     void shouldDisableProduct() {
         final Product productEntityToDisable = JSONUtil.fromFile("samples/disable/productEntityToDisable.json", Product.class);
         final Product productEntityDisabled = JSONUtil.fromFile("samples/disable/productEntityDisable.json", Product.class);
-        when(productRepository.findById(anyLong())).thenReturn(Optional.of(productEntityToDisable));
+        final ProductDTO productToUpdated = JSONUtil.fromFile("samples/update/productDTOToUpdate.json", ProductDTO.class);
+        when(productRepository.findByIdAndActive(anyLong(), anyBoolean())).thenReturn(Optional.of(productEntityToDisable));
         when(productRepository.save(any(Product.class))).thenReturn(productEntityDisabled);
+        when(mapper.map(any(Product.class), eq(ProductDTO.class))).thenReturn(productToUpdated);
         service.disableProductById(1l);
-        verify(productRepository).findById(1l);
+        verify(productRepository).findByIdAndActive(1l, true);
         verify(productRepository).save(productEntityDisabled);
     }
 
     @Test
     void shouldTryDisableProductButProductNotFound() {
-        when(productRepository.findById(anyLong())).thenReturn(Optional.empty());
+        when(productRepository.findByIdAndActive(anyLong(), anyBoolean())).thenReturn(Optional.empty());
         assertThrows(EntityNotFoundException.class, () -> service.disableProductById(1l));
     }
 
