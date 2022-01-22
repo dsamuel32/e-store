@@ -8,3 +8,7 @@ Inclua um desenho arquitetural utilizando o padrão arquitetural CQRS com as tec
 ##Arquitetura
 
 ![Arquitetura](https://github.com/dsamuel32/e-store/blob/master/diagrama/diagrama.png)
+
+###Executando Banco de dados Mysql, Mongodb e RabbigMq 
+
+
