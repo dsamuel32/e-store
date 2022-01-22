@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: products-command
+  datasource:
+    url: jdbc:mysql://localhost:3306/products?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: aplicacao
+    password: aplicacao
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate.order_by.default_null_ordering: first
+      hibernate.enable_lazy_load_no_trans: true
+      hibernate.temp.use_jdbc_metadata_defaults: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+
+server:
+  servlet:
+    context-path: /products-command

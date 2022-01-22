@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "name": "TV",
+  "description": "TV Led 42 polegadas",
+  "price": 2000.0,
+  "brand": "Samsung",
+  "category": {
+    "id": 1,
+    "description": "Eletrônicos"
+  },
+  "images": [
+    {
+      "link": "http://fakeurl.com/1.png",
+      "description": "Imagem frontal",
+      "main": true
+    },
+    {
+      "link": "http://fakeurl.com/2.png",
+      "description": "Imagem traseira",
+      "main": false
+    },
+    {
+      "link": "http://fakeurl.com/3.png",
+      "description": "Imagem lateral",
+      "main": false
+    }
+  ]
+}
