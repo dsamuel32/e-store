@@ -1,10 +1,9 @@
-package br.com.estore.productcommand.domain.dtos;
+package br.com.estore.productquery.domain.dtos;
 
-import br.com.estore.productcommand.constants.ApplicationConstants;
+import br.com.estore.productquery.constants.ApplicationConstants;
 import lombok.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -41,6 +40,7 @@ public class ProductDTO {
     @NotEmpty(message = ApplicationConstants.REQUIRED_NOT_EMPTY_FIELD)
     private List<ImageDTO> images;
 
-    private Boolean active;
+    @Builder.Default
+    private Boolean active = true;
 
 }

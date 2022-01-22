@@ -1,5 +1,4 @@
 {
-  "id": 1,
   "name": "TV",
   "description": "TV Led 42 polegadas",
   "price": 2000.0,
@@ -24,6 +23,5 @@
       "description": "Imagem lateral",
       "main": false
     }
-  ],
-  "active": true
+  ]
 }

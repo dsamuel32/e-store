@@ -1,11 +1,11 @@
-package br.com.estore.productcommand.components.converters;
+package br.com.estore.productquery.components.converters;
 
-import br.com.estore.productcommand.domain.dtos.CategoryDTO;
-import br.com.estore.productcommand.domain.dtos.ImageDTO;
-import br.com.estore.productcommand.domain.dtos.ProductDTO;
-import br.com.estore.productcommand.domain.entities.Category;
-import br.com.estore.productcommand.domain.entities.Image;
-import br.com.estore.productcommand.domain.entities.Product;
+import br.com.estore.productquery.domain.dtos.CategoryDTO;
+import br.com.estore.productquery.domain.dtos.ImageDTO;
+import br.com.estore.productquery.domain.dtos.ProductDTO;
+import br.com.estore.productquery.domain.entities.Category;
+import br.com.estore.productquery.domain.entities.Image;
+import br.com.estore.productquery.domain.entities.Product;
 import org.modelmapper.AbstractConverter;
 import org.springframework.stereotype.Component;
 
@@ -13,37 +13,36 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class ProductDTOConverter extends AbstractConverter<Product, ProductDTO> {
+public class ProductEntityConverter extends AbstractConverter<ProductDTO, Product> {
 
     @Override
-    protected ProductDTO convert(final Product product) {
-        return ProductDTO.builder()
+    protected Product convert(final ProductDTO product) {
+        return Product.builder()
                 .id(product.getId())
                 .brand(product.getBrand())
                 .category(buildCategory(product.getCategory()))
                 .description(product.getDescription())
                 .images(buildImages(product.getImages()))
                 .name(product.getName())
-                .active(product.getActive())
                 .price(product.getPrice())
                 .build();
     }
 
-    private CategoryDTO buildCategory(final Category category) {
-        return CategoryDTO.builder()
+    private Category buildCategory(final CategoryDTO category) {
+        return Category.builder()
                 .id(category.getId())
                 .description(category.getDescription())
                 .build();
     }
 
-    private List<ImageDTO> buildImages(final List<Image> images) {
+    private List<Image> buildImages(final List<ImageDTO> images) {
         return images.stream()
                 .map(this::buildImage)
                 .collect(Collectors.toList());
     }
 
-    private ImageDTO buildImage(final Image image) {
-        return ImageDTO.builder()
+    private Image buildImage(final ImageDTO image) {
+        return Image.builder()
                 .link(image.getLink())
                 .main(image.getMain())
                 .description(image.getDescription())

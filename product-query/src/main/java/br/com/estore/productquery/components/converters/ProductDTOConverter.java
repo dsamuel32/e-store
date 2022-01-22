@@ -1,11 +1,11 @@
-package br.com.estore.productcommand.components.converters;
+package br.com.estore.productquery.components.converters;
 
-import br.com.estore.productcommand.domain.dtos.CategoryDTO;
-import br.com.estore.productcommand.domain.dtos.ImageDTO;
-import br.com.estore.productcommand.domain.dtos.ProductDTO;
-import br.com.estore.productcommand.domain.entities.Category;
-import br.com.estore.productcommand.domain.entities.Image;
-import br.com.estore.productcommand.domain.entities.Product;
+import br.com.estore.productquery.domain.dtos.CategoryDTO;
+import br.com.estore.productquery.domain.dtos.ImageDTO;
+import br.com.estore.productquery.domain.dtos.ProductDTO;
+import br.com.estore.productquery.domain.entities.Category;
+import br.com.estore.productquery.domain.entities.Image;
+import br.com.estore.productquery.domain.entities.Product;
 import org.modelmapper.AbstractConverter;
 import org.springframework.stereotype.Component;
 
@@ -24,7 +24,6 @@ public class ProductDTOConverter extends AbstractConverter<Product, ProductDTO> 
                 .description(product.getDescription())
                 .images(buildImages(product.getImages()))
                 .name(product.getName())
-                .active(product.getActive())
                 .price(product.getPrice())
                 .build();
     }
