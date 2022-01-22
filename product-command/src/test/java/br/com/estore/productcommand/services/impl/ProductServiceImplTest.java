@@ -12,7 +12,11 @@ import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @DisplayName("Tests for ProductServiceImpl")
@@ -64,9 +68,20 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void shouldDeleteProduct() {
-        service.deleteById(1l);;
-        verify(productRepository).deleteById(1l);
+    void shouldDisableProduct() {
+        final Product productEntityToDisable = JSONUtil.fromFile("samples/disable/productEntityToDisable.json", Product.class);
+        final Product productEntityDisabled = JSONUtil.fromFile("samples/disable/productEntityDisable.json", Product.class);
+        when(productRepository.findById(anyLong())).thenReturn(Optional.of(productEntityToDisable));
+        when(productRepository.save(any(Product.class))).thenReturn(productEntityDisabled);
+        service.disableProductById(1l);
+        verify(productRepository).findById(1l);
+        verify(productRepository).save(productEntityDisabled);
+    }
+
+    @Test
+    void shouldTryDisableProductButProductNotFound() {
+        when(productRepository.findById(anyLong())).thenReturn(Optional.empty());
+        assertThrows(EntityNotFoundException.class, () -> service.disableProductById(1l));
     }
 
 }

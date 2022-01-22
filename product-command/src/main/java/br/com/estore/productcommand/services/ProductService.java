@@ -8,6 +8,6 @@ public interface ProductService {
 
     ProductDTO update(final ProductDTO productDTO);
 
-    void deleteById(final Long id);
+    void disableProductById(final Long id);
 
 }

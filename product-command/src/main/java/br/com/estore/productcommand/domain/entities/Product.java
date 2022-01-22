@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "products")
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -43,5 +43,8 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "product_id", nullable = false)
     private List<Image> images;
+
+    @Column(name = "active")
+    private Boolean active;
 
 }

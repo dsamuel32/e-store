@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class ProductDTOConverter extends AbstractConverter<Product, ProductDTO> {
+
     @Override
     protected ProductDTO convert(final Product product) {
         return ProductDTO.builder()

@@ -23,6 +23,7 @@ public class ProductEntityConverter extends AbstractConverter<ProductDTO, Produc
                 .category(buildCategory(product.getCategory()))
                 .description(product.getDescription())
                 .published(false)
+                .active(true)
                 .images(buildImages(product.getImages()))
                 .name(product.getName())
                 .price(product.getPrice())

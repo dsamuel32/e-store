@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
+
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -44,8 +46,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void deleteById(final Long id) {
-        productRepository.deleteById(id);
+    public void disableProductById(final Long id) {
+        productRepository.findById(id)
+                .map(p -> p.toBuilder().active(false).published(false).build())
+                .map(productRepository::save)
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Product ID: %s not found", id)));
     }
 
 }

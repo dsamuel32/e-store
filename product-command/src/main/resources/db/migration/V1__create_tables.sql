@@ -11,6 +11,7 @@ CREATE TABLE products (
        `brand` varchar(100) NOT NULL,
        `published` BOOL NOT NULL,
        `category_id` BIGINT NOT NULL,
+       `active` BOOL not null,
        CONSTRAINT products_FK FOREIGN KEY (`category_id`) REFERENCES categories(`id`)
 );
 
