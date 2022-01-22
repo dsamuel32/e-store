@@ -36,3 +36,4 @@ scheduler:
 server:
   servlet:
     context-path: /products-command
+  port: 8082

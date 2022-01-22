@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: api-bff
+
+api:
+  products-query: http://localhost:8081/products-query
+  products-command: http://localhost:8082/products-command
+
+server:
+  servlet:
+    context-path: /api-bff
