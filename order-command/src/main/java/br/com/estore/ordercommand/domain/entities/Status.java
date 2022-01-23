@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Status {
 
     @Id
-    private String id;
+    private Long id;
 
     @Column(name = "code")
     private String code;

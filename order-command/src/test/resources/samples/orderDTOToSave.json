@@ -1,0 +1,26 @@
+{
+  "customer": {
+    "name": "Tiao da Silva",
+    "documentNumber": "123456",
+    "email": "tiao@gmail.com"
+  },
+  "shippingAddress": {
+    "street": "Rua 2",
+    "number": "22",
+    "additionalInfo": "apt 110",
+    "postalCode": "70018523"
+  },
+  "items": [
+    {
+      "code": "1",
+      "name": "TV 42 polegadas",
+      "price": 2000.0
+    },
+    {
+      "code": "4",
+      "name": "Jogo Homem Aranha",
+      "price": 300.0
+    }
+  ],
+  "price": 2300.0
+}

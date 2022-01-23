@@ -3,9 +3,8 @@ package br.com.estore.ordercommand.domain.dtos;
 import br.com.estore.ordercommand.constants.ApplicationConstants;
 import lombok.*;
 
-import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor
@@ -13,10 +12,8 @@ import javax.validation.constraints.NotNull;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class CostumerDTO {
+public class CustomerDTO {
 
-    @NotNull(message = ApplicationConstants.REQUIRED_NOT_EMPTY_FIELD)
-    @Valid
     private Long id;
 
     @NotBlank(message = ApplicationConstants.REQUIRED_FIELD)
@@ -26,6 +23,7 @@ public class CostumerDTO {
     private String documentNumber;
 
     @NotBlank(message = ApplicationConstants.REQUIRED_FIELD)
+    @Email(message = ApplicationConstants.INVALID_EMAIL)
     private String email;
 
 }

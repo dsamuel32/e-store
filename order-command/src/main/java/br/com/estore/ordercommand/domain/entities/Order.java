@@ -11,30 +11,34 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 @ToString
 @EqualsAndHashCode
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @OneToOne
     @JoinColumn(name = "status_id")
     private Status status;
 
-    @OneToOne
-    @JoinColumn(name = "costumer_id")
-    private Costumer costumer;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address shippingAddress;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(columnDefinition = "order_id")
+    @JoinColumn(name = "order_id", nullable = false)
     private List<Item> items;
+
+    @Column(name = "published")
+    private Boolean published;
 
     public BigDecimal getTotal() {
         return items.stream()

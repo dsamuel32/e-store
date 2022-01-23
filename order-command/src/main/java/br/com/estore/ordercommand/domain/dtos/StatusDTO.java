@@ -10,8 +10,6 @@ import lombok.*;
 @EqualsAndHashCode
 public class StatusDTO {
 
-    private Long id;
-
     private String code;
 
     private String description;

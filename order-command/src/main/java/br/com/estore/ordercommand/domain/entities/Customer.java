@@ -5,14 +5,14 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "costumers")
+@Table(name = "customers")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ToString
 @EqualsAndHashCode
-public class Costumer {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

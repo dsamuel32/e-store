@@ -1,4 +1,4 @@
-package br.com.estore.ordercommand.components;
+package br.com.estore.ordercommand.components.publishers;
 
 import br.com.estore.ordercommand.constants.RabbitMQ;
 import br.com.estore.ordercommand.domain.dtos.OrderDTO;

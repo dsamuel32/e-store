@@ -22,7 +22,7 @@ public class OrderDTO {
 
     @NotNull(message = ApplicationConstants.REQUIRED_NOT_EMPTY_FIELD)
     @Valid
-    private CostumerDTO costumer;
+    private CustomerDTO customer;
 
     @NotNull(message = ApplicationConstants.REQUIRED_NOT_EMPTY_FIELD)
     @Valid

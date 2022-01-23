@@ -1,4 +1,4 @@
-package br.com.estore.ordercommand.components;
+package br.com.estore.ordercommand.components.publishers;
 
 import org.springframework.scheduling.annotation.Async;
 

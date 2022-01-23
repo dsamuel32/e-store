@@ -11,7 +11,7 @@ CREATE TABLE customers (
     `email` varchar(120) NOT NULL
 );
 
-CREATE TABLE address (
+CREATE TABLE addresses (
    `id` BIGINT auto_increment NOT NULL primary key,
    `street` varchar(255) NOT NULL,
    `number` varchar(20) NOT NULL,
@@ -22,11 +22,12 @@ CREATE TABLE address (
 CREATE TABLE orders (
    `id` BIGINT auto_increment NOT NULL primary key,
    `status_id` BIGINT NOT NULL ,
-   `costumer_id` BIGINT NOT NULL,
+   `customer_id` BIGINT NOT NULL,
    `address_id` BIGINT NOT NULL,
+   `published` BOOL NOT NULL,
    CONSTRAINT products_FK FOREIGN KEY (`status_id`) REFERENCES status(`id`),
-   CONSTRAINT customers_FK FOREIGN KEY (`costumer_id`) REFERENCES customers(`id`),
-   CONSTRAINT address_FK FOREIGN KEY (`address_id`) REFERENCES address(`id`)
+   CONSTRAINT customers_FK FOREIGN KEY (`customer_id`) REFERENCES customers(`id`),
+   CONSTRAINT address_FK FOREIGN KEY (`address_id`) REFERENCES addresses(`id`)
 );
 
 CREATE TABLE items (
