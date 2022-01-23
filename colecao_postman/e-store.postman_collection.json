@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "2306123d-9ad8-48f6-aab4-d07f53d8af6a",
+		"name": "e-store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Salvar produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"F1 2021\",\r\n  \"description\": \"Jogo oficial da formula 1\",\r\n  \"price\": 300.0,\r\n  \"brand\": \"Playstation\",\r\n  \"category\": {\r\n    \"id\": 4,\r\n    \"description\": \"Jogos\"\r\n  },\r\n  \"images\": [\r\n    {\r\n      \"link\": \"http://fakeurl.com/1.png\",\r\n      \"description\": \"Imagem frontal\",\r\n      \"main\": true\r\n    },\r\n    {\r\n      \"link\": \"http://fakeurl.com/2.png\",\r\n      \"description\": \"Imagem traseira\",\r\n      \"main\": false\r\n    },\r\n    {\r\n      \"link\": \"http://fakeurl.com/3.png\",\r\n      \"description\": \"Imagem lateral\",\r\n      \"main\": false\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar produto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Homem Aranha 2\",\r\n    \"description\": \"Jogo Homem Aranha - exclusivo Sony\",\r\n    \"price\": 300.0,\r\n    \"brand\": \"Playstation\",\r\n    \"category\": {\r\n        \"id\": 4,\r\n        \"description\": \"Jogos\"\r\n    },\r\n    \"images\": [\r\n        {\r\n            \"link\": \"http://fakeurl.com/1.png\",\r\n            \"description\": \"Imagem frontal\",\r\n            \"main\": true\r\n        },\r\n        {\r\n            \"link\": \"http://fakeurl.com/2.png\",\r\n            \"description\": \"Imagem traseira\",\r\n            \"main\": false\r\n        },\r\n        {\r\n            \"link\": \"http://fakeurl.com/3.png\",\r\n            \"description\": \"Imagem lateral\",\r\n            \"main\": false\r\n        }\r\n    ],\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar produto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar Produtos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/products?name=TV",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "42",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "Eletr",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "TV"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar ordem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customer\": {\r\n    \"name\": \"Tiao da Silva\",\r\n    \"documentNumber\": \"123456\",\r\n    \"email\": \"tiao@gmail.com\"\r\n  },\r\n  \"shippingAddress\": {\r\n    \"street\": \"Rua 2\",\r\n    \"number\": \"22\",\r\n    \"additionalInfo\": \"apt 110\",\r\n    \"postalCode\": \"70018523\"\r\n  },\r\n  \"items\": [\r\n    {\r\n      \"code\": \"1\",\r\n      \"name\": \"TV 42 polegadas\",\r\n      \"price\": 2000.0\r\n    },\r\n    {\r\n      \"code\": \"4\",\r\n      \"name\": \"Jogo Homem Aranha\",\r\n      \"price\": 300.0\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmar ordem",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Diego\",\r\n    \"creditCartNumber\": \"123\",\r\n    \"expirationDate\": \"12/2022\",\r\n    \"verificationCode\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/orders/1/confirm",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"orders",
+						"1",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar ordem",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api-bff/v1/orders?email=tiao@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api-bff",
+						"v1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "tiao@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
