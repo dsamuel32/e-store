@@ -14,7 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -55,6 +55,12 @@ public class OrderServiceImpl implements OrderService {
         }
 
         throw new IllegalArgumentException("Invalid Credit Card");
+    }
+
+    @Override
+    public void republishOrders() {
+        final List<Order> orders = repository.findByPublished(false);
+        orders.forEach(this::publishAndSave);
     }
 
     private Order createNewOrder(final Order order) {

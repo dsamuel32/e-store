@@ -9,4 +9,6 @@ public interface OrderService {
 
     OrderDTO confirm(final Long orderId, final PaymentDTO payment);
 
+    void republishOrders();
+
 }
