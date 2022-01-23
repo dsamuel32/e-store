@@ -36,4 +36,4 @@ scheduler:
 server:
   servlet:
     context-path: /orders-command
-  port: 8080
+  port: 8084

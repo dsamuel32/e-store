@@ -1,6 +1,6 @@
 package br.com.estore.appbff.apibff.exceptions.handlers;
 
-import br.com.estore.appbff.apibff.domain.ExceptionResponseDTO;
+import br.com.estore.appbff.apibff.domain.products.ExceptionResponseDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

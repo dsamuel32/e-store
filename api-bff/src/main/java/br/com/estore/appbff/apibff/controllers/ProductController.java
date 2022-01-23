@@ -1,7 +1,7 @@
 package br.com.estore.appbff.apibff.controllers;
 
-import br.com.estore.appbff.apibff.domain.ProductDTO;
-import br.com.estore.appbff.apibff.domain.ProductFilterDTO;
+import br.com.estore.appbff.apibff.domain.products.ProductDTO;
+import br.com.estore.appbff.apibff.domain.products.ProductFilterDTO;
 import br.com.estore.appbff.apibff.services.ProductService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

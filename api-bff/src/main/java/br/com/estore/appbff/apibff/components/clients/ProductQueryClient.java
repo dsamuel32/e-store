@@ -1,6 +1,6 @@
 package br.com.estore.appbff.apibff.components.clients;
 
-import br.com.estore.appbff.apibff.domain.ProductDTO;
+import br.com.estore.appbff.apibff.domain.products.ProductDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

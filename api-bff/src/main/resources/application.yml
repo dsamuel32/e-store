@@ -5,6 +5,8 @@ spring:
 api:
   products-query: http://localhost:8081/products-query
   products-command: http://localhost:8082/products-command
+  orders-query: http://localhost:8083/orders-query
+  orders-command: http://localhost:8084/orders-command
 
 server:
   servlet:

@@ -2,8 +2,8 @@ package br.com.estore.appbff.apibff.services.impl;
 
 import br.com.estore.appbff.apibff.components.proxies.ProductCommandProxy;
 import br.com.estore.appbff.apibff.components.proxies.ProductQueryProxy;
-import br.com.estore.appbff.apibff.domain.ProductDTO;
-import br.com.estore.appbff.apibff.domain.ProductFilterDTO;
+import br.com.estore.appbff.apibff.domain.products.ProductDTO;
+import br.com.estore.appbff.apibff.domain.products.ProductFilterDTO;
 import br.com.estore.appbff.apibff.services.ProductService;
 import org.springframework.stereotype.Service;
 

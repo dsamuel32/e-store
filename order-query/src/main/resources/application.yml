@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: orders-query
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        default-requeue-rejected: false
+        retry:
+          enabled: false
+          max-attempts: 3
+          initial-interval: 1000
+          multiplier: 2
+          max-interval: 5000
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/orders
+      auto-index-creation: true
+
+server:
+  servlet:
+    context-path: /orders-query
+  port: 8083

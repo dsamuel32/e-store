@@ -1,11 +1,9 @@
 package br.com.estore.appbff.apibff.components.proxies;
 
 import br.com.estore.appbff.apibff.components.clients.ProductCommandClient;
-import br.com.estore.appbff.apibff.domain.ProductDTO;
+import br.com.estore.appbff.apibff.domain.products.ProductDTO;
 import feign.FeignException;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class ProductCommandProxy {
