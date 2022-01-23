@@ -5,7 +5,7 @@
 Desenvolvimento de 2 APIs, a 1ª para exposição de produtos de uma loja e a 2ª para registrar a compra realizada.
 Inclua um desenho arquitetural utilizando o padrão arquitetural CQRS com as tecnologias conhecidas.
 
-##Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - Java
 - Spring-Boot
 - MongoDB
@@ -13,11 +13,11 @@ Inclua um desenho arquitetural utilizando o padrão arquitetural CQRS com as tec
 - RabbitMq
 - Docker
 
-##Arquitetura
+## Arquitetura
 
 <img alt="Arquitetura" height="600" src="https://github.com/dsamuel32/e-store/blob/master/diagrama/diagrama.png" title="Diagrama Arquitetura" width="900"/>
 
-###Executando Banco de dados Mysql, Mongodb e RabbigMq 
+### Executando Banco de dados Mysql, Mongodb e RabbigMq 
 - Entrar no diretório .docker e executar o comando abaixo:
 ```
 docker-compose up
@@ -43,13 +43,13 @@ mvn spring-boot:run
 ```
 mvn spring-boot:run
 ```
-###Coleções postman
-Clique no line para baixar a coleção de requisições para uso no [Postman](colecao_postman/e-store.postman_collection.json) ;
+### Coleções postman
+Clique no line para baixar a coleção de requisições para uso no [Postman](https://github.com/dsamuel32/e-store/blob/master/colecao_postman/e-store.postman_collection.json) ;
 
-###Requisições diponíveis
+### Requisições diponíveis
 - Salvar Produto
   `POST localhost:8080/api-bff/v1/products`
-####Payload de Envio
+#### Payload de Envio
 ```
 {
   "name": "F1 2021",
@@ -113,7 +113,7 @@ Clique no line para baixar a coleção de requisições para uso no [Postman](co
 ```
 - Editar Produto
   `PUT localhost:8080/api-bff/v1/products/5`
-####Payload de Envio
+#### Payload de Envio
 ```
 {
   "name": "F1 2021",
@@ -180,7 +180,7 @@ Clique no line para baixar a coleção de requisições para uso no [Postman](co
   `DELETE localhost:8080/api-bff/v1/products/5`
 - Pesquisar Produto
   `GET localhost:8080/api-bff/v1/products?name=F1`
-###Payload de Resposta
+### Payload de Resposta
 ```
 [
     {
@@ -216,7 +216,7 @@ Clique no line para baixar a coleção de requisições para uso no [Postman](co
 ```
 - Criar Ordem
   `POST localhost:8080/api-bff/v1/orders`
-###Payload de Envio
+### Payload de Envio
 ```
 {
   "customer": {
@@ -284,7 +284,7 @@ Clique no line para baixar a coleção de requisições para uso no [Postman](co
 ```
 - Confirmar Ordem
   `PUT localhost:8080/api-bff/v1/orders/1/confirm`
-###Payload de Envio
+### Payload de Envio
 ```
 {
     "name": "Tiao Silva",
@@ -333,7 +333,7 @@ Clique no line para baixar a coleção de requisições para uso no [Postman](co
 ```
 - Buscar Ordens
  `GET localhost:8080/api-bff/v1/orders?email=tiao@gmail.com&status=CREATE&minPrice100.0&maxPrice=5000.0`
-###Payload de Resposta
+### Payload de Resposta
 ```
 [
     {
@@ -374,10 +374,7 @@ Clique no line para baixar a coleção de requisições para uso no [Postman](co
 ]
 ```
 
-
-
-
-###Informações adicionais
+### Informações adicionais
 - O microsserviço product-command já possui alguns produtos já pré-inseridos que são sincronizados através de um scheduler 
 que executa a cada um minuto para sincronizar pedidos não sincronizados no momento das operações de CRUD.
 - O microsserviço order-command já possui alguns pedidos já pre-inseridos que são sincronizados através de um scheduler 
