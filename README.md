@@ -7,7 +7,7 @@ Inclua um desenho arquitetural utilizando o padrão arquitetural CQRS com as tec
 
 ##Arquitetura
 
-![Arquitetura](https://github.com/dsamuel32/e-store/blob/master/diagrama/diagrama.png)
+<img alt="Arquitetura" height="600" src="https://github.com/dsamuel32/e-store/blob/master/diagrama/diagrama.png" title="Diagrama Arquitetura" width="900"/>
 
 ###Executando Banco de dados Mysql, Mongodb e RabbigMq 
 
