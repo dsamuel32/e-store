@@ -61,6 +61,16 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 .build(), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public final ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex) {
+        log.error("RestExceptionHandler.handleIllegalArgumentException - start - message ['" + ex.getMessage() + "']", ex);
+        return buildResponseEntity(ExceptionResponseDTO.builder()
+                .code(HttpStatus.BAD_REQUEST.name())
+                .message(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                .details(new HashSet<>(Collections.singletonList(ex.getMessage())))
+                .build(), HttpStatus.BAD_REQUEST);
+    }
+
     private ResponseEntity<Object> buildResponseEntity(final ExceptionResponseDTO apiError, final HttpStatus httpStatus) {
         return new ResponseEntity<>(apiError, httpStatus);
     }

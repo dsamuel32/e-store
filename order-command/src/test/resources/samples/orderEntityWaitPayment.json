@@ -1,9 +1,9 @@
 {
   "id": 1,
   "status": {
-    "id": 1,
-    "code": "CREATED",
-    "description": "Criada"
+    "id": 2,
+    "code": "WAIT_PAYMENT",
+    "description": "Aguardando Pagamento"
   },
   "customer": {
     "name": "Tiao da Silva",

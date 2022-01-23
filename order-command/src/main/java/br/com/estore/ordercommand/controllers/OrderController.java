@@ -1,6 +1,7 @@
 package br.com.estore.ordercommand.controllers;
 
 import br.com.estore.ordercommand.domain.dtos.OrderDTO;
+import br.com.estore.ordercommand.domain.dtos.PaymentDTO;
 import br.com.estore.ordercommand.services.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,5 +23,11 @@ public class OrderController {
     @ResponseStatus(HttpStatus.CREATED)
     public OrderDTO create(@RequestBody @Valid OrderDTO order) {
         return service.create(order);
+    }
+
+    @PutMapping(value = "{id}/confirm", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public OrderDTO confirm(@PathVariable("id") final Long id, @RequestBody PaymentDTO payment) {
+        return service.confirm(id, payment);
     }
 }
